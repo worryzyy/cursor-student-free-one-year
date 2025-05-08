@@ -73,3 +73,16 @@
 到下面这一步基本就是完成了，只需要等邮件就可以
 
 ![图片](./images/3.8.png)
+
+# 长时间收不到 Cursor confirm 邮件的，可以试下下面的方法
+
+发一份邮件给 Cursor 团队，收件人：`hi@cursor.com` ,内容如下
+
+```
+Dear Cursor Team,
+I hope you are well after receiving this email. I am writing to inquire about the status of my application for an education discount that I submitted about a few hours ago. Although I have successfully uploaded the required documents, I have not received a confirmation email for submitting my application.
+Please note that this email address (填你的邮箱，必须要 .edu邮箱，你的Cursor登录账号邮箱必须跟申请的邮箱一致) is the same email address used when applying. As a student actively participating in academic projects and open source contributions, receiving Cursor's education discount is essential for my studies and continued support of the developer community. I kindly ask that you assist me in expediting the application review process.
+Thank you for your time and consideration. I would appreciate any updates.
+Regards.
+
+```
