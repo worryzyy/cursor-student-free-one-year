@@ -11,14 +11,16 @@
 
 ### 方法一：通过安装插件 🛠️
 
-1. **下载浏览器插件**：油猴脚本(篡改猴)，官网搜索[谷歌插件商店](https://chromewebstore.google.com/category/extensions)，搜索篡改猴，添加到 chrome
-   📌 _提示：若脚本异常，可直接访问官网下载_ → [scriptcat.org/zh-CN/](https://scriptcat.org/zh-CN/)  
+1. **下载浏览器插件**：油猴脚本(篡改猴)，官网搜索[谷歌插件商店](https://chromewebstore.google.com/category/extensions)，搜索篡改猴
+
    ![图片](./images/1.1.png)
 
 2. **点击「添加新脚本」** → 将`cursor_cn_script.js`的代码复制进去
+
    ![图片](./images/1.2.png)
 
-3. **完成后如下** ✅  
+3. **完成后如下** ✅
+
    ![图片](./images/1.3.png)
 
 ---
@@ -27,15 +29,14 @@
 
 ### **GPT-4o 生成** 🤖
 
-1. **下载模板图片**  
+1. **下载模板图片**
+
    ![图片](./images/2.1.jpg)
 
 2. **使用提示词生成新图片**：
 
-   ```plaintext
-
+   ```
    将图片中的姓名改为:李四，性别:男，头像改为真实的人像正面免冠照，并且所有内容都用英文
-
    ```
 
    生成后如下
