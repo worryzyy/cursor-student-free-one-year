@@ -40,11 +40,13 @@
    ```
 
    生成后如下
+
    ![图片](./images/2.2.png)
 
 ## 三、填写资料领取 Cursor 年度会员
 
 3.1 访问 Cursor 年度会员领取地址（即学生认证可免费领取）： https://www.cursor.com/students
+
 ![图片](./images/3.2.png)
 
 注意：此处如果没有登录，需要注册登录 Cursor 账号（请使用教育邮箱！！！）
