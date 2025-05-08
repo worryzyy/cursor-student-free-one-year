@@ -1,60 +1,47 @@
 // ==UserScript==
 // @name         Cursor 学生认证添加China选项
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/worryzyy/cursor-student-free-one-year
 // @version      0.1
-// @description  将SheerID验证服务的响应中添加CN（中国）国家代码
-// @author       You
+// @description  添加CN代码
+// @author       weilei
 // @match        https://my.sheerid.com/*
 // @match        https://*.sheerid.com/*
 // @match        https://www.cursor.com/cn/student*
 // @match        https://www.cursor.com/cn/student-verified*
 // @match        https://cursor.com/cn/student*
 // @match        https://services.sheerid.com/verify/*
-// @run-at       document-start
-// @grant        none
 // ==/UserScript==
 
 (function () {
   'use strict';
 
-  // 创建一个拦截和修改响应的函数
   const originalFetch = window.fetch;
   window.fetch = async function (url, options) {
     const response = await originalFetch(url, options);
 
-    // 只拦截特定的URL
     if (url.includes('/rest/v2/program/681044b7729fba7beccd3565/theme') ||
       url.includes('theme?locale=') ||
       url.includes('/rest/v2/program/') && url.includes('/theme')) {
       try {
-        // 克隆响应以便修改
         const clonedResponse = response.clone();
         const responseBody = await clonedResponse.json();
 
-        // 检查并修改countries数组
         if (responseBody && responseBody.config && Array.isArray(responseBody.config.countries)) {
-          // 检查CN是否已存在
           if (!responseBody.config.countries.includes('CN')) {
-            console.log('添加CN到国家列表中...');
-            // 在合适的位置添加CN，按字母顺序
-            // CH和CI之间是CN的合适位置
+
             const chIndex = responseBody.config.countries.indexOf('CH');
             if (chIndex !== -1) {
               responseBody.config.countries.splice(chIndex + 1, 0, 'CN');
             } else {
-              // 如果没找到CH，就直接添加到数组中
               responseBody.config.countries.push('CN');
             }
 
-            // 添加CN对应的标签
             if (responseBody.config.orgSearchCountryTags) {
               responseBody.config.orgSearchCountryTags['CN'] = ["HEI", "qualifying_hs", "qualifying_ps"];
             }
 
-            console.log('成功添加CN到国家列表');
           }
 
-          // 创建一个新的响应对象
           return new Response(JSON.stringify(responseBody), {
             status: response.status,
             statusText: response.statusText,
@@ -62,14 +49,12 @@
           });
         }
       } catch (e) {
-        console.error('处理fetch响应时出错:', e);
         return response;
       }
     }
     return response;
   };
 
-  // 如果网站使用XMLHttpRequest，同样需要拦截
   const originalXHROpen = XMLHttpRequest.prototype.open;
   const originalXHRSend = XMLHttpRequest.prototype.send;
 
@@ -91,10 +76,7 @@
             const responseBody = JSON.parse(xhr.responseText);
 
             if (responseBody && responseBody.config && Array.isArray(responseBody.config.countries)) {
-              // 检查CN是否已存在
               if (!responseBody.config.countries.includes('CN')) {
-                console.log('添加CN到国家列表中...(XHR)');
-                // 在合适的位置添加CN，按字母顺序
                 const chIndex = responseBody.config.countries.indexOf('CH');
                 if (chIndex !== -1) {
                   responseBody.config.countries.splice(chIndex + 1, 0, 'CN');
@@ -102,15 +84,12 @@
                   responseBody.config.countries.push('CN');
                 }
 
-                // 添加CN对应的标签
                 if (responseBody.config.orgSearchCountryTags) {
                   responseBody.config.orgSearchCountryTags['CN'] = ["HEI", "qualifying_hs", "qualifying_ps"];
                 }
 
-                console.log('成功添加CN到国家列表(XHR)');
               }
 
-              // 使用定义属性的方式替换responseText
               Object.defineProperty(xhr, 'responseText', {
                 get: function () {
                   return JSON.stringify(responseBody);
@@ -118,7 +97,7 @@
               });
             }
           } catch (e) {
-            console.error('处理XHR响应时出错:', e);
+            console.error('oooooo:', e);
           }
         }
 
@@ -131,5 +110,5 @@
     return originalXHRSend.apply(this, [body]);
   };
 
-  console.log('Cursor SheerID CN国家添加脚本已加载');
+  console.log('xixixixi');
 })();
