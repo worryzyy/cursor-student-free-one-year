@@ -91,4 +91,8 @@ Regards.
 
 ```
 
+以上邮件 Cursor 官方的回复如下：
+
+![图片](./images/reply.png)
+
 反正就是耐心等吧 ⌛
